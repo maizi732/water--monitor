@@ -1,0 +1,262 @@
+body{
+  margin:0;
+  background:#07111f;
+  color:white;
+  font-family:Arial;
+}
+
+.loginScreen{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#07111f;
+}
+
+.loginCard{
+  background:#10233f;
+  padding:40px;
+  border-radius:25px;
+  width:320px;
+  text-align:center;
+  box-shadow:0 0 30px rgba(0,255,255,0.2);
+}
+
+.loginCard input{
+  width:100%;
+  margin-top:15px;
+  padding:15px;
+  border:none;
+  border-radius:12px;
+  background:#0b1830;
+  color:white;
+  box-sizing:border-box;
+}
+
+.loginCard button{
+  margin-top:20px;
+  width:100%;
+  padding:15px;
+  border:none;
+  border-radius:12px;
+  background:#00d9ff;
+  color:black;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+header{
+  background:#0e1c33;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px;
+  flex-wrap:wrap;
+}
+
+.headerLeft{
+  display:flex;
+  align-items:center;
+  gap:15px;
+}
+
+.logoBox{
+  width:60px;
+  height:60px;
+  border-radius:20px;
+  background:#153055;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:35px;
+}
+
+.statusBox{
+  background:#00ff88;
+  color:black;
+  padding:10px 20px;
+  border-radius:30px;
+  font-weight:bold;
+}
+
+.topNav{
+  display:flex;
+  justify-content:center;
+  gap:10px;
+  padding:15px;
+  background:#091423;
+  flex-wrap:wrap;
+}
+
+.topNav button{
+  padding:12px 20px;
+  border:none;
+  border-radius:12px;
+  background:#132742;
+  color:white;
+  cursor:pointer;
+}
+
+.screen{
+  display:none;
+  padding:20px;
+}
+
+.active{
+  display:block;
+}
+
+.mainGrid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:20px;
+}
+
+.industrialCard{
+  background:#10233f;
+  padding:25px;
+  border-radius:25px;
+  box-shadow:0 0 20px rgba(0,255,255,0.08);
+}
+
+.qualityCircle{
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  border:8px solid #00ffcc;
+  margin:20px auto;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:45px;
+  font-weight:bold;
+  color:#00ffcc;
+}
+
+.gaugeValue{
+  font-size:45px;
+  margin-top:20px;
+  font-weight:bold;
+}
+
+.gaugeBar{
+  width:100%;
+  height:25px;
+  background:#08111f;
+  border-radius:30px;
+  overflow:hidden;
+  margin-top:20px;
+}
+
+.gaugeFill{
+  height:100%;
+  width:0%;
+  background:#00d9ff;
+  transition:0.5s;
+}
+
+.realtimeItem{
+  margin-top:15px;
+  font-size:20px;
+}
+
+.graphCard{
+  background:#10233f;
+  border-radius:25px;
+  padding:20px;
+  margin-top:20px;
+  height:350px;
+}
+
+.aiCard{
+  background:#10233f;
+  padding:25px;
+  border-radius:25px;
+}
+
+#assistantMessage{
+  font-size:22px;
+  line-height:2;
+}
+
+.progressLine{
+  width:100%;
+  height:20px;
+  background:#07111f;
+  border-radius:20px;
+  overflow:hidden;
+  margin-top:10px;
+}
+
+.progressFill{
+  height:100%;
+  width:100%;
+  background:#00ff88;
+}
+
+#historyContainer{
+  display:flex;
+  flex-direction:column;
+  gap:15px;
+}
+
+.historyCard{
+  background:#10233f;
+  padding:20px;
+  border-radius:20px;
+}
+
+.alertHidden{
+  display:none;
+}
+
+.alertVisible{
+  display:block;
+  background:#ff0033;
+  padding:20px;
+  text-align:center;
+  font-size:24px;
+  font-weight:bold;
+  animation:blink 1s infinite;
+}
+
+@keyframes blink{
+
+  0%{
+    opacity:1;
+  }
+
+  50%{
+    opacity:0.4;
+  }
+
+  100%{
+    opacity:1;
+  }
+
+}
+
+canvas{
+  width:100% !important;
+  height:100% !important;
+}
+
+@media(max-width:768px){
+
+  .topNav{
+    position:fixed;
+    bottom:0;
+    width:100%;
+    z-index:1000;
+  }
+
+  body{
+    padding-bottom:90px;
+  }
+
+  header{
+    flex-direction:column;
+    gap:15px;
+  }
+
+}

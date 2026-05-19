@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+  <title>
+    Industrial Water System
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- PWA -->
+  <link
+    rel="manifest"
+    href="manifest.json">
+
+  <meta
+    name="theme-color"
+    content="#00d9ff">
+
+  <meta
+    name="mobile-web-app-capable"
+    content="yes">
+
+  <meta
+    name="apple-mobile-web-app-capable"
+    content="yes">
+
+  <!-- Firebase -->
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+  <!-- ALERT -->
+  <div
+    id="alertBox"
+    class="alertHidden">
+
+    🚨 ALERT SYSTEM
+
+    <div id="alertText"></div>
+
+  </div>
+
+  <!-- HEADER -->
+  <header>
+
+    <div class="headerLeft">
+
+      <div class="logoBox">
+        💧
+      </div>
+
+      <div>
+
+        <h2>
+          WATER CONTROL SYSTEM
+        </h2>
+
+        <p>
+          Industrial SCADA Dashboard
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="statusBox">
+      ONLINE
+    </div>
+
+  </header>
+
+  <!-- NAV -->
+  <div class="topNav">
+
+    <button onclick="showScreen('screen1')">
+      🛰️ Realtime
+    </button>
+
+    <button onclick="showScreen('screen2')">
+      📊 Graphs
+    </button>
+
+    <button onclick="showScreen('screen3')">
+      🤖 AI Assistant
+    </button>
+
+    <button onclick="showScreen('screen4')">
+      🕒 History
+    </button>
+
+  </div>
+
+  <!-- SCREEN 1 -->
+  <section
+    id="screen1"
+    class="screen active">
+
+    <div class="mainGrid">
+
+      <div class="industrialCard">
+
+        <h2>
+          Water Quality
+        </h2>
+
+        <div class="qualityCircle">
+
+          <span id="qualityScore">
+            100
+          </span>
+
+        </div>
+
+        <h2 id="qualityText">
+          Excellent
+        </h2>
+
+      </div>
+
+      <div class="industrialCard">
+
+        <h2>
+          🧪 pH Gauge
+        </h2>
+
+        <div
+          id="phGauge"
+          class="gaugeValue">
+          0
+        </div>
+
+        <div class="gaugeBar">
+
+          <div
+            id="phBar"
+            class="gaugeFill">
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="industrialCard">
+
+        <h2>
+          💎 TDS Gauge
+        </h2>
+
+        <div
+          id="tdsGauge"
+          class="gaugeValue">
+          0
+        </div>
+
+        <div class="gaugeBar">
+
+          <div
+            id="tdsBar"
+            class="gaugeFill">
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="industrialCard">
+
+        <h2>
+          💧 Flow Gauge
+        </h2>
+
+        <div
+          id="flowGauge"
+          class="gaugeValue">
+          0
+        </div>
+
+        <div class="gaugeBar">
+
+          <div
+            id="flowBar"
+            class="gaugeFill">
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="industrialCard">
+
+        <h2>
+          Realtime Values
+        </h2>
+
+        <div class="realtimeItem">
+          pH:
+          <span id="ph">--</span>
+        </div>
+
+        <div class="realtimeItem">
+          TDS:
+          <span id="tds">--</span>
+        </div>
+
+        <div class="realtimeItem">
+          Conductivity:
+          <span id="cond">--</span>
+        </div>
+
+        <div class="realtimeItem">
+          Flow:
+          <span id="flow">--</span>
+        </div>
+
+        <div class="realtimeItem">
+          Volume:
+          <span id="volume">--</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SCREEN 2 -->
+  <section
+    id="screen2"
+    class="screen">
+
+    <div class="graphCard">
+      <canvas id="phChart"></canvas>
+    </div>
+
+    <div class="graphCard">
+      <canvas id="tdsChart"></canvas>
+    </div>
+
+    <div class="graphCard">
+      <canvas id="flowChart"></canvas>
+    </div>
+
+  </section>
+
+  <!-- SCREEN 3 -->
+  <section
+    id="screen3"
+    class="screen">
+
+    <div class="aiCard">
+
+      <h1>
+        🤖 AI Industrial Assistant
+      </h1>
+
+      <div id="assistantMessage">
+        System analysis...
+      </div>
+
+      <br>
+
+      <p id="filterText">
+        Filter Life: 100%
+      </p>
+
+      <div class="progressLine">
+
+        <div
+          id="filterLife"
+          class="progressFill">
+        </div>
+
+      </div>
+
+      <br>
+
+      <p id="membraneText">
+        Membrane Life: 100%
+      </p>
+
+      <div class="progressLine">
+
+        <div
+          id="membraneLife"
+          class="progressFill">
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SCREEN 4 -->
+  <section
+    id="screen4"
+    class="screen">
+
+    <h1>
+      Realtime History
+    </h1>
+
+    <div id="historyContainer"></div>
+
+  </section>
+
+  <!-- ALARM -->
+  <audio
+    id="alarmAudio"
+    src="https://actions.google.com/sounds/v1/alarms/alarm_clock.ogg">
+  </audio>
+
+  <script>
+
+    function showScreen(screenId) {
+
+      let screens =
+        document.querySelectorAll(".screen");
+
+      screens.forEach(screen => {
+        screen.classList.remove("active");
+      });
+
+      document
+        .getElementById(screenId)
+        .classList.add("active");
+    }
+
+    if ("serviceWorker" in navigator) {
+
+      navigator.serviceWorker
+        .register("sw.js");
+    }
+
+  </script>
+
+  <script src="app.js"></script>
+
+</body>
+
+</html>

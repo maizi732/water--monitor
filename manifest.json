@@ -1,0 +1,23 @@
+{
+  "name": "Industrial Water System",
+  "short_name": "WaterSCADA",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#07111f",
+  "theme_color": "#00d9ff",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "id": "011111111111124652",
+  "description": "apk mobile for a water control system"
+}
